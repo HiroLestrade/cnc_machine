@@ -1,13 +1,17 @@
-String gcode = "G00 X1.1 Y0.5 F2";
+//String gcode = "G00 X1.1 Y0.5 F2";
+
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  Serial.println(parseNumber("M", gcode));
+  //turn on motors
+  Serial.println("Ready, waiting for instructions...");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
+  if(Serial.available()){
+    instruction = Serial.read();
+    gcodeInterpreter(instruction);
+    Serial.println("Ready, waiting for instructions..."); 
+  }
 }
 
 float getValue(String key, String cmmnd){
