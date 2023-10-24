@@ -1,5 +1,9 @@
 #include "A4988_stepperLinear.h"
 
+A4988_stepperLinear::A4988_stepperLinear(){
+
+}
+
 A4988_stepperLinear::A4988_stepperLinear(int stepPin, int dirPin, int enablePin, int screwSteps, float screwLen) {
   _stepPin = stepPin;
   _dirPin = dirPin;

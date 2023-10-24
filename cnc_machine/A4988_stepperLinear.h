@@ -15,6 +15,7 @@ class A4988_stepperLinear {
   public:
     static const int CLOCKWISE = 0;
     static const int C_CLOCKWISE = 1;
+    A4988_stepperLinear();
     A4988_stepperLinear(int stepPin, int dirPin, int enablePin, int screwSteps, float screwLen);
     void oneStep(int dir);
     String where();
