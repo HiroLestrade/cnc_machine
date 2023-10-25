@@ -1,6 +1,6 @@
 #include "A4988_stepperLinear.h"
 
-A4988_stepperLinear::A4988_stepperLinear(){
+A4988_stepperLinear::A4988_stepperLinear() {
 
 }
 
@@ -19,8 +19,16 @@ A4988_stepperLinear::A4988_stepperLinear(int stepPin, int dirPin, int enablePin,
   pinMode(_dirPin, OUTPUT);
   pinMode(_enablePin, OUTPUT);
 
-  digitalWrite(_enablePin, LOW);
+  digitalWrite(_enablePin, HIGH);
 };
+
+void A4988_stepperLinear::enable(){
+  digitalWrite(_enablePin, LOW);
+}
+
+void A4988_stepperLinear::disable(){
+  digitalWrite(_enablePin, HIGH);
+}
 
 void A4988_stepperLinear::oneStep(int dir) {
   digitalWrite(_dirPin, dir);
@@ -40,6 +48,18 @@ void A4988_stepperLinear::oneStep(int dir) {
   }
 };
 
-String A4988_stepperLinear::where(){
+String A4988_stepperLinear::where() {
   return "Position:\t" + (String)_posSteps + " [steps]\t" + (String)_pos + " [mm]";
+}
+
+float A4988_stepperLinear::getResolution(){
+  return _resolution;
+}
+
+int A4988_stepperLinear::getPosSteps(){
+  return _posSteps;
+}
+
+float A4988_stepperLinear::getPos(){
+  return _pos;
 }

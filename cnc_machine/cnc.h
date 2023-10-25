@@ -13,4 +13,8 @@ class CNC {
     void setMotor_y(int stepPin, int dirPin, int enablePin, int steps, float screw);
     void setMotor_z(int stepPin, int dirPin, int enablePin, int steps, float screw);
     void line(int newx, int newy, int newz);
+    void test();
+    A4988_stepperLinear getMotorX();
+    A4988_stepperLinear getMotorY();
+    A4988_stepperLinear getMotorZ();
 };
